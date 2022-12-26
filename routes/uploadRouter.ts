@@ -1,8 +1,9 @@
 import { Router } from "express";
 import { uploadFileMiddleware } from "../utils/uploadFileMiddleware";
 import { deleteFile, uploadFile } from "../controllers/UploadController";
+import checkAuth from "../utils/checkAuth";
 
 export const uploadRouter = Router();
 
-uploadRouter.post("/", uploadFileMiddleware, uploadFile);
-uploadRouter.delete("/", deleteFile);
+uploadRouter.post("/", checkAuth, uploadFileMiddleware, uploadFile);
+uploadRouter.delete("/", checkAuth, deleteFile);
