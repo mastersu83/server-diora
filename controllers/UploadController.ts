@@ -8,6 +8,7 @@ export const uploadFile = (req: Request, res: Response) => {
 };
 
 export const deleteFile = (req: Request, res: Response) => {
+  console.log(req.body)
   if (fs.existsSync(`${req.body?.imageUrl}`)) {
     fs.unlink(`${req.body?.imageUrl}`, (err) => {
       if (err) {
