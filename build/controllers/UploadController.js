@@ -14,6 +14,7 @@ const uploadFile = (req, res) => {
 exports.uploadFile = uploadFile;
 const deleteFile = (req, res) => {
     var _a, _b;
+    console.log(req.body);
     if (fs_1.default.existsSync(`${(_a = req.body) === null || _a === void 0 ? void 0 : _a.imageUrl}`)) {
         fs_1.default.unlink(`${(_b = req.body) === null || _b === void 0 ? void 0 : _b.imageUrl}`, (err) => {
             if (err) {
